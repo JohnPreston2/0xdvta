@@ -1,0 +1,111 @@
+# 🔬 SENIOR ON-CHAIN FORENSIC MOMENTUM REPORT
+
+**Chain:** Solana (0xDVTA Agent)  
+**Tokens Analyzed:** 12  
+**Market Environment:** High Concentration (ICR widespread), Stealth Accumulation active in mid-caps.
+
+---
+
+## 1. 🏆 TOP 3 OPPORTUNITIES
+
+**1. DUPE** - **CES: 40/100** | **FHS: 4.8/10**
+- **Phase:** ACCUMULATION | **CP:** 42.2%
+- **Active signals:** **SAC (Silent Accumulation)** (NBP +71% + Price -3.5%), **Bull Flag Convergence** (Class 1 detected), **DAI Buy Wall** (0.71).
+- **Bull Flag:** Class 1 | **BPI:** 0.94 | **Fib Target:** $0.01077 (+10.1%)
+- **Holders:** Top5 = 35.2% | **Structure:** High concentration but coordinated buy pressure.
+- **Entry zone:** $0.0095 - $0.0098 | **Stop loss:** $0.0088 | **Target:** $0.0108
+- **Risks:** **ICR 42.73** (Critical - penalty -25). High holder can shift price significantly.
+- **Note:** The NBP of +71.4% is the strongest buy pressure in the current dataset.
+
+**2. CMEM** - **CES: 35/100** | **FHS: 5.9/10**
+- **Phase:** CONSOLIDATION | **CP:** 34.6%
+- **Active signals:** **Extreme Squeeze (SI 87.5% on 15m)**, **High LCR (26.3%)**, RSI Oversold zone (BER -1.25).
+- **Bull Flag:** N/A | **Squeeze factor:** 1.0 (Normal) / Extreme 15m Compression.
+- **Holders:** Top5 = 34.23% | **Structure:** Healthy liquidity vs market cap compared to peers.
+- **Entry zone:** $0.000078 - $0.000080 | **Stop loss:** $0.000075 | **Target:** $0.000095
+- **Risks:** Recent phase shift from Accumulation to Consolidation; needs volume to break 15m compression.
+
+**3. LORIA** - **CES: 32/100** | **FHS: 5.6/10**
+- **Phase:** ACCUMULATION | **CP:** 35.5%
+- **Active signals:** **Positive NBP (+16.5%)**, RSI Equilibrium (46.6), Technical Oversold zone (BER -0.01).
+- **Structure:** Low concentration (Top5 = 12.2%), one of the most distributed holder bases on the list.
+- **Entry zone:** $0.00115 - $0.00118 | **Stop loss:** $0.00110 | **Target:** $0.00140
+- **Risks:** ICR 8.67. Low immediate volatility (LVR suspicious/low).
+
+---
+
+## 2. ⚠️ TOKENS IN DISTRIBUTION / NEGATIVE MOMENTUM
+
+**PSYOPANIME** ⚠️ **NEGATIVE MOMENTUM**
+- **Signal:** Distribution Phase + Fragile Forensic Health.
+- **Details:** FHS dropped from 5.6 to 3.9 (-1.7). NBP is low (+2.6%).
+- **Shift:** CONSOLIDATION -> DISTRIBUTION_POTENTIELLE.
+- **Recommendation:** **EXIT/REDUCE.** Structural health is deteriorating.
+
+**GSD** ⚠️ **NEGATIVE MOMENTUM**
+- **Signal:** Active Distribution Phase.
+- **Details:** NBP -24.6% (Consistent selling pressure).
+- **Since:** Phase shifted to full DISTRIBUTION in this cycle.
+- **Recommendation:** **AVOID.** RSI 23 suggests "oversold," but negative NBP indicates no buy-side absorption yet.
+
+---
+
+## 3. 🐋 WHALE WATCH
+
+| Token | Top Whale | % Supply | Type | Entity | Alert |
+|-------|-----------|----------|------|--------|-------|
+| CARDS | 53.47% (ICR) | 84.11% (Top 5) | EOA | Anonymous | ⚠️ EXTREME CONCENTRATION |
+| CLOUD | 41.50% (ICR) | 64.64% (Top 5) | EOA | Anonymous | ⚠️ CENTRALIZED |
+| DUPE | 42.73% (ICR) | 35.21% (Top 5) | EOA | Anonymous | 🐋 Active Syndicate |
+| AVICI | 17.50% (ICR) | 24.05% (Top 5) | EOA | Anonymous | 🐋 Stable Whale |
+
+---
+
+## 4. 📊 SUMMARY TABLE
+
+| Token | Phase | FHS | NBP | BPI | SI (1h) | ICR | Top5% | CES | Signal |
+|-------|-------|-----|-----|-----|-----|-----|-------|-----|--------|
+| **DUPE** | ACCUM | 4.8 | +71% | 0.94 | 43% | 42.7 | 35.2% | 40 | 🟡 SAC + Flag |
+| **CMEM** | CONSOL | 5.9 | +14% | 0.00 | 48% | 6.06 | 34.2% | 35 | 🟡 Squeeze 15m |
+| **LORIA**| ACCUM | 5.6 | +17% | 0.00 | 52% | 8.67 | 12.3% | 32 | 🟡 ACCUM Flow |
+| **TESTICLE**| CONSOL | 5.5 | +3.5%| 0.00 | 67% | 12.5 | 16.5% | 22 | ⚪ Neutral |
+| **AVICI** | CONSOL | 5.5 | +39% | 0.00 | 40% | 17.5 | 24.1% | 25 | ⚪ High DAI |
+| **CLOUD** | CONSOL | 5.4 | -5.4%| 0.00 | 75% | 41.5 | 64.6% | 15 | 🔴 Centralized |
+| **GSD**   | DIST  | 5.6 | -25% | 0.00 | 1.6% | 7.84 | 12.6% | 10 | 🔴 Distribution |
+| **CARDS** | DIST_P| 3.3 | -0.1%| 0.00 | 25% | 53.5 | 84.1% | 5  | 🔴 Critical ICR|
+
+**Legend:** 🟢 ≥ 70 | 🟡 50-69 (Note: All tokens below 50 due to ICR/Concentration penalties) | 🔴 < 30
+
+---
+
+## 5. 🔄 CHANGES VS PREVIOUS
+
+1. 💎 **SAC (Silent Accumulation):** **DUPE** shows massive absorption (NBP +71% on negative price action).
+2. 🚩 **New Bull Flags:** **DUPE** (Class 1) - Targets +10% upside.
+3. 🔄 **Phase Changes:**
+   - **CMEM:** Downgraded from Accumulation to Consolidation.
+   - **CLOUD:** Recovered from Potential Distribution to Consolidation.
+   - **PSYOPANIME:** Exhaustion detected; moved to Potential Distribution.
+4. 🔀 **NBP Inversions:** **PIGEON** moved from -1.6% to +2.2% (Initial buy interest).
+5. 📊 **FHS Variations:** **PSYOPANIME** dropped -1.7 points, indicating structural weakening.
+
+---
+
+## 6. 🎯 ACTION PLAN
+
+📌 **RECOMMENDED ENTRIES (CES 30-49, Monitor closely):**
+- **DUPE**: Entry $0.0097. The combination of NBP +71% and a Class 1 Bull Flag is a rare momentum high-conviction signal, despite the ICR risk.
+- **CMEM**: Entry on 15m breakout. Extreme compression (87%) usually precedes a ±15% move.
+
+👀 **WATCHLIST:**
+- **PIGEON**: RSI is oversold (23). NBP just flipped positive. If AC (Absorption) increases in the next cycle, this is a bottom-fishing play.
+
+🚪 **RECOMMENDED EXITS:**
+- **CARDS / PSYOPANIME**: Structural risk (FHS < 4) and distribution phases. Better capital efficiency elsewhere.
+
+---
+**Report generated:** 2026-03-26  
+**Analyzed:** 2026-03-26 14:00 UTC  
+**Tokens:** 12  
+**Total alerts:** 14  
+**Top CES:** DUPE = 40/100

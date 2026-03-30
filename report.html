@@ -736,7 +736,7 @@ async function triggerPayment() {
     const dataBuffer = new ArrayBuffer(9);
     const dataView = new DataView(dataBuffer);
     dataView.setUint8(0, 3);
-    dataView.setBigUint64(1, BigInt(amount), true);
+    dataView.setBigUint64(1, BigInt(AMOUNT || AMOUNT_SYNTHESIS || 50000), true);
     const transferIx = new solanaWeb3.TransactionInstruction({
       keys: [
         { pubkey: fromATA, isSigner: false, isWritable: true },

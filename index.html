@@ -786,10 +786,9 @@ async function triggerPayment(target) {
     const { blockhash } = await conn.getLatestBlockhash();
     const tx = new solanaWeb3.Transaction({ recentBlockhash: blockhash, feePayer: fromPubkey });
     tx.add(transferIx);
-    const signed = await solProvider.signTransaction(tx);
-    setStatus('Sending transaction...', 'pending', target || '');
-    const sig = await conn.sendRawTransaction(signed.serialize());
-    await conn.confirmTransaction(sig, 'confirmed');
+    const { signature } = await solProvider.signAndSendTransaction(tx);
+    setStatus('Confirming...', 'pending', target || '');
+    await conn.confirmTransaction(signature, 'confirmed');
 setStatus('✓ Payment confirmed', 'ok', target);
     setTimeout(() => {
       if (target === 'synthesis') unlockSynthesis(false);

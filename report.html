@@ -747,14 +747,14 @@ async function triggerPayment() {
       programId: TOKEN_PROGRAM,
       data: new Uint8Array(dataBuffer),
     });
-    const btn = document.getElementById(btnId || 'btn-unlock');
+    const btn = document.getElementById('btn-unlock');
     if(btn) { btn.disabled = true; btn.textContent = 'Pending...'; }
-    setStatus('Confirm in Phantom...', 'pending', target || '');
+    setStatus('Confirm in Phantom...', 'pending');
     const { blockhash } = await conn.getLatestBlockhash();
     const tx = new solanaWeb3.Transaction({ recentBlockhash: blockhash, feePayer: fromPubkey });
     tx.add(transferIx);
     const signed = await solProvider.signTransaction(tx);
-    setStatus('Sending transaction...', 'pending', target || '');
+    setStatus('Sending transaction...', 'pending');
     const sig = await conn.sendRawTransaction(signed.serialize());
     await conn.confirmTransaction(sig, 'confirmed');
 setStatus('✓ Payment confirmed', 'ok');

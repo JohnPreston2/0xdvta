@@ -750,7 +750,7 @@ async function triggerPayment() {
     const btn = document.getElementById('btn-unlock');
     if(btn) { btn.disabled = true; btn.textContent = 'Pending...'; }
     setStatus('Confirm in Phantom...', 'pending');
-    const resp = await fetch('https://api.mainnet-beta.solana.com', {
+    const resp = await fetch('https://rpc.ankr.com/solana', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ jsonrpc: '2.0', id: 1, method: 'getLatestBlockhash', params: [{ commitment: 'finalized' }] })

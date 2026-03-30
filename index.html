@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>0xDVTA | Solana Forensic Intelligence</title>
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/ethers/5.7.2/ethers.umd.min.js"></script>
+  <script src="https://unpkg.com/@solana/web3.js@1.95.3/lib/index.iife.min.js"></script>
   <style>
     :root {
       --bg: #050505;
@@ -594,11 +594,11 @@
 /* ══════════════════════════════════════════════
    CONFIG
 ══════════════════════════════════════════════ */
-const RECEIVER_ADDRESS  = '0xYOUR_RECEIVER_ADDRESS';
-const USDC_BASE         = '0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913';
-const AMOUNT_DASHBOARD  = '20000';   // $0.02
-const AMOUNT_SYNTHESIS  = '50000';   // $0.05
-const BASE_CHAIN_ID     = 8453;
+const RECEIVER_ADDRESS  = 'BRKz5jgKwo5dKbGaNYPpPScag65s1wuKAoWuNCjNYkyk';
+const USDC_MINT         = 'EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v';
+const AMOUNT_DASHBOARD  = 20000;     // $0.02 USDC (6 decimals)
+const AMOUNT_SYNTHESIS  = 50000;     // $0.05 USDC (6 decimals)
+const SOLANA_RPC        = 'https://api.mainnet-beta.solana.com';
 const SK_DASH           = '0xdvta_unlocked';
 const SK_SYNTH          = '0xdvta_report_unlocked';
 const CYCLE_MS          = 2 * 60 * 60 * 1000; // 2h in ms
@@ -728,20 +728,20 @@ function unlockSynthesis(fromSession) {
    WALLET
 ══════════════════════════════════════════════ */
 async function connectWallet() {
-  if (!window.ethereum) { setStatus('No wallet — install MetaMask', 'err', 'both'); return; }
+  const provider = window.phantom?.solana || window.solana;
+  if (!provider?.isPhantom) { setStatus('No wallet — install Phantom', 'err', 'both'); return; }
   try {
-    const provider = new ethers.providers.Web3Provider(window.ethereum);
-    await provider.send('eth_requestAccounts', []);
-    walletAddress = await provider.getSigner().getAddress();
+    const resp = await provider.connect();
+    walletAddress = resp.publicKey.toString();
     const btn = document.getElementById('wallet-btn');
     btn.classList.add('connected');
-    document.getElementById('wallet-label').textContent = walletAddress.slice(0,6)+'...'+walletAddress.slice(-4);
+    document.getElementById('wallet-label').textContent = walletAddress.slice(0,4)+'...'+walletAddress.slice(-4);
     // Enable both unlock buttons, hide connect buttons
-    document.getElementById('btn-connect-center').style.display = 'none';
-    document.getElementById('btn-connect-synth').style.display  = 'none';
-    document.getElementById('btn-pay-center').disabled = false;
-    document.getElementById('btn-pay-synth').disabled  = false;
-    setStatus('Wallet connected — ready', 'ok', 'both');
+    const cc = document.getElementById('btn-connect-center'); if(cc) cc.style.display = 'none';
+    const cs = document.getElementById('btn-connect-synth');  if(cs) cs.style.display = 'none';
+    const pc = document.getElementById('btn-pay-center'); if(pc) pc.disabled = false;
+    const ps = document.getElementById('btn-pay-synth');  if(ps) ps.disabled = false;
+    setStatus('Phantom connected — ready', 'ok', 'both');
   } catch(e) { setStatus('Connection refused', 'err', 'both'); }
 }
 
@@ -754,30 +754,43 @@ async function triggerPayment(target) {
   const btnId  = target === 'synthesis' ? 'btn-pay-synth' : 'btn-pay-center';
   const label  = target === 'synthesis' ? 'Unlock for $0.05 USDC' : 'Unlock for $0.02 USDC';
 
-  setStatus('Switching to Base...', 'pending', target);
+  setStatus('Building transaction...', 'pending', target);
   try {
-    const provider = new ethers.providers.Web3Provider(window.ethereum);
-    try {
-      await window.ethereum.request({ method: 'wallet_switchEthereumChain', params: [{ chainId: '0x'+BASE_CHAIN_ID.toString(16) }] });
-    } catch(e) {
-      if (e.code === 4902) {
-        await window.ethereum.request({ method: 'wallet_addEthereumChain', params: [{
-          chainId: '0x'+BASE_CHAIN_ID.toString(16), chainName: 'Base',
-          nativeCurrency: { name:'ETH', symbol:'ETH', decimals:18 },
-          rpcUrls: ['https://mainnet.base.org'],
-          blockExplorerUrls: ['https://solscan.io']
-        }]});
-      } else throw e;
-    }
-    setStatus('Confirm in wallet...', 'pending', target);
-    const signer = provider.getSigner();
-    const usdc = new ethers.Contract(USDC_BASE, ['function transfer(address to, uint256 amount) returns (bool)'], signer);
-    const btn = document.getElementById(btnId);
-    btn.disabled = true; btn.textContent = 'Pending...';
-    const tx = await usdc.transfer(RECEIVER_ADDRESS, amount);
-    setStatus('Transaction sent · confirming...', 'pending', target);
-    await tx.wait();
-    setStatus('✓ Payment confirmed', 'ok', target);
+        const solProvider = window.phantom?.solana || window.solana;
+    const conn = new solanaWeb3.Connection(SOLANA_RPC);
+    const fromPubkey = new solanaWeb3.PublicKey(walletAddress);
+    const toPubkey = new solanaWeb3.PublicKey(RECEIVER_ADDRESS);
+    const mintPubkey = new solanaWeb3.PublicKey(USDC_MINT);
+    const TOKEN_PROGRAM = new solanaWeb3.PublicKey('TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA');
+    const ATA_PROGRAM = new solanaWeb3.PublicKey('ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL');
+    const fromATA = (await solanaWeb3.PublicKey.findProgramAddress(
+      [fromPubkey.toBuffer(), TOKEN_PROGRAM.toBuffer(), mintPubkey.toBuffer()], ATA_PROGRAM))[0];
+    const toATA = (await solanaWeb3.PublicKey.findProgramAddress(
+      [toPubkey.toBuffer(), TOKEN_PROGRAM.toBuffer(), mintPubkey.toBuffer()], ATA_PROGRAM))[0];
+    const dataBuffer = new ArrayBuffer(9);
+    const dataView = new DataView(dataBuffer);
+    dataView.setUint8(0, 3);
+    dataView.setBigUint64(1, BigInt(amount), true);
+    const transferIx = new solanaWeb3.TransactionInstruction({
+      keys: [
+        { pubkey: fromATA, isSigner: false, isWritable: true },
+        { pubkey: toATA, isSigner: false, isWritable: true },
+        { pubkey: fromPubkey, isSigner: true, isWritable: false },
+      ],
+      programId: TOKEN_PROGRAM,
+      data: new Uint8Array(dataBuffer),
+    });
+    const btn = document.getElementById(btnId || 'btn-unlock');
+    if(btn) { btn.disabled = true; btn.textContent = 'Pending...'; }
+    setStatus('Confirm in Phantom...', 'pending', target || '');
+    const { blockhash } = await conn.getLatestBlockhash();
+    const tx = new solanaWeb3.Transaction({ recentBlockhash: blockhash, feePayer: fromPubkey });
+    tx.add(transferIx);
+    const signed = await solProvider.signTransaction(tx);
+    setStatus('Sending transaction...', 'pending', target || '');
+    const sig = await conn.sendRawTransaction(signed.serialize());
+    await conn.confirmTransaction(sig, 'confirmed');
+setStatus('✓ Payment confirmed', 'ok', target);
     setTimeout(() => {
       if (target === 'synthesis') unlockSynthesis(false);
       else                        unlockDashboard(false);

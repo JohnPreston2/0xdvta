@@ -757,7 +757,6 @@ async function triggerPayment(target) {
   setStatus('Building transaction...', 'pending', target);
   try {
         const solProvider = window.phantom?.solana || window.solana;
-    const conn = new solanaWeb3.Connection(SOLANA_RPC);
     const fromPubkey = new solanaWeb3.PublicKey(walletAddress);
     const toPubkey = new solanaWeb3.PublicKey(RECEIVER_ADDRESS);
     const mintPubkey = new solanaWeb3.PublicKey(USDC_MINT);
@@ -783,12 +782,11 @@ async function triggerPayment(target) {
     const btn = document.getElementById(btnId || 'btn-unlock');
     if(btn) { btn.disabled = true; btn.textContent = 'Pending...'; }
     setStatus('Confirm in Phantom...', 'pending', target || '');
-    const { blockhash } = await conn.getLatestBlockhash();
-    const tx = new solanaWeb3.Transaction({ recentBlockhash: blockhash, feePayer: fromPubkey });
+    const tx = new solanaWeb3.Transaction();
     tx.add(transferIx);
+    tx.feePayer = fromPubkey;
     const { signature } = await solProvider.signAndSendTransaction(tx);
-    setStatus('Confirming...', 'pending', target || '');
-    await conn.confirmTransaction(signature, 'confirmed');
+    setStatus('Confirmed!', 'ok', target || '');
 setStatus('✓ Payment confirmed', 'ok', target);
     setTimeout(() => {
       if (target === 'synthesis') unlockSynthesis(false);

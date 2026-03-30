@@ -750,7 +750,8 @@ async function triggerPayment() {
     const btn = document.getElementById('btn-unlock');
     if(btn) { btn.disabled = true; btn.textContent = 'Pending...'; }
     setStatus('Confirm in Phantom...', 'pending');
-    const tx = new solanaWeb3.Transaction({ recentBlockhash: blockhash, feePayer: fromPubkey });
+    const tx = new solanaWeb3.Transaction();
+    tx.feePayer = fromPubkey;
     tx.add(transferIx);
     const { signature } = await solProvider.signAndSendTransaction(tx);
     setStatus('Confirming...', 'pending');

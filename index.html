@@ -456,8 +456,8 @@
     <div id="top-updated" class="status-item">LAST SCAN: --</div>
   </div>
   <div style="display:flex;align-items:center;gap:10px;">
-    <div id="badge-dash"  class="unlock-badge dash"><span class="dot"></span>Dashboard $0.02</div>
-    <div id="badge-synth" class="unlock-badge synth"><span class="dot"></span>Synthesis $0.05</div>
+    <div id="badge-dash"  class="unlock-badge dash" style="display:none" style="display:none"><span class="dot"></span>Dashboard $0.02</div>
+    <div id="badge-synth" class="unlock-badge synth" style="display:none" style="display:none"><span class="dot"></span>Synthesis $0.05</div>
     <button id="wallet-btn" onclick="connectWallet()">
       <span class="w-dot"></span>
       <span id="wallet-label">Connect Wallet</span>
@@ -489,13 +489,13 @@
   </aside>
 
   <!-- ── CENTRE ── -->
-  <main class="content-area locked" id="detail-panel">
+  <main class="content-area" id="detail-panel">
 
     <!-- ══ VIEW: DASHBOARD (token detail) ══ -->
     <div id="view-dashboard">
 
       <!-- PAYWALL OVERLAY — dashboard $0.02 -->
-      <div class="paywall-overlay" id="center-paywall">
+      <div class="paywall-overlay" style="display:none" style="display:none" id="center-paywall">
         <div class="paywall-card">
           <div class="pw-chip">Per-token forensic · $0.02 USDC</div>
           <div class="pw-icon">🔐</div>
@@ -526,7 +526,7 @@
     <div id="view-synthesis" style="display:none; position:relative; min-height:100%;">
 
       <!-- PAYWALL OVERLAY — synthesis $0.05 -->
-      <div class="paywall-overlay" id="synth-paywall">
+      <div class="paywall-overlay" style="display:none" style="display:none" id="synth-paywall">
         <div class="paywall-card amber-theme">
           <div class="pw-chip">Global synthesis · $0.05 USDC</div>
           <div class="pw-icon">📊</div>
@@ -566,8 +566,8 @@
   </main>
 
   <!-- ── RIGHT PANEL — locké ── -->
-  <aside class="telemetry locked" id="right-panel">
-    <div class="paywall-overlay" id="right-paywall" style="background:rgba(5,5,5,0.85);">
+  <aside class="telemetry" id="right-panel">
+    <div class="paywall-overlay" style="display:none" style="display:none" id="right-paywall" style="background:rgba(5,5,5,0.85);">
       <div style="text-align:center;padding:20px;">
         <div style="font-size:20px;margin-bottom:12px;opacity:0.5;">🔒</div>
         <div class="mono" style="font-size:10px;color:var(--text-dim);margin-bottom:16px;letter-spacing:0.05em;text-transform:uppercase;">Unlock to view alerts &amp; supply</div>

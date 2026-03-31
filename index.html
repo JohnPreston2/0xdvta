@@ -1247,5 +1247,6 @@ loadReport();
 setInterval(loadMemory, 30000);
 setInterval(loadReport, 120000);
 </script>
+<script>window.addEventListener("load",function(){document.getElementById("detail-panel").classList.remove("locked");document.getElementById("right-panel").classList.remove("locked");document.querySelectorAll(".paywall-overlay").forEach(function(e){e.style.display="none"});document.querySelectorAll(".unlock-badge").forEach(function(e){e.style.display="none"});});</script>
 </body>
 </html>

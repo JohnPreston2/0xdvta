@@ -610,8 +610,8 @@ let allTokens    = [];
 let reportData   = null;
 let selected     = null;
 let walletAddress= null;
-let isDashUnlocked  = false;
-let isSynthUnlocked = false;
+let isDashUnlocked  = true;
+let isSynthUnlocked = true;
 let currentView  = 'dashboard';
 // Track which tokens have been paid for this cycle
 let paidTokens   = {}; // { symbol: timestamp }
@@ -651,8 +651,8 @@ function selectToken(idx) {
   } else {
     // Lock and show paywall for this token
     isDashUnlocked = false;
-    document.getElementById('detail-panel').classList.add('locked');
-    document.getElementById('right-panel').classList.add('locked');
+    //freed
+    //freed
     document.getElementById('center-paywall').style.display = 'flex';
     document.getElementById('right-paywall').style.display  = 'flex';
     // Update paywall to show token name

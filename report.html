@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>0xΔ | Global Synthesis Report</title>
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
-  <script src="https://unpkg.com/@solana/web3.js@1.95.3/lib/index.iife.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ethers/5.7.2/ethers.umd.min.js"></script>
   <style>
     :root {
       --bg: #050505;
@@ -569,10 +569,10 @@
   </div>
 
   <!-- RIGHT PANEL -->
-  <div class="right-panel locked" id="right-panel">
+  <div class="right-panel" id="right-panel">
 
     <!-- PAYWALL GATE -->
-    <div class="paywall-gate" id="paywall-gate">
+    <div class="paywall-gate" id="paywall-gate" style="display:none">
       <div class="paywall-card">
         <div class="pw-chip">Global Synthesis Report · Every 2 Hours</div>
         <h2 class="pw-title">Full Intel<br>Unlocked</h2>
@@ -620,7 +620,7 @@
       </div>
     </div>
 
-    <div class="download-bar" id="download-bar" style="display:none;">
+    <div class="download-bar" id="download-bar" style="display:flex;">
       <div class="download-info">
         <strong id="dl-filename">synthesis_report.md</strong><br>
         Full Venice AI synthesis · <span id="dl-tokens">13 tokens</span> · Solana
@@ -635,11 +635,10 @@
 /* ══════════════════════════════════════════════
    CONFIG
 ══════════════════════════════════════════════ */
-const RECEIVER_ADDRESS = 'nzEeqCR7ZnjoZU31fgUoLfP7FEMqj968zN4UBSQyXLP'; // ← replace with your address
-const USDC_MINT = 'EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v';
+const RECEIVER_ADDRESS = '0xYOUR_RECEIVER_ADDRESS'; // ← replace with your address
+const USDC_BASE = '0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913';
 const USDC_AMOUNT = '50000'; // $0.05 USDC (6 decimals)
-const SOLANA_RPC = 'https://rpc.ankr.com/solana';
-const AMOUNT = 50000;  // $0.05 USDC
+const BASE_CHAIN_ID = 8453;
 const SESSION_KEY = '0xdvta_report_unlocked';
 const CYCLE_MS = 2 * 60 * 60 * 1000; // 2h
 
@@ -673,7 +672,7 @@ function fmtPct(val) {
 ══════════════════════════════════════════════ */
 let reportData = null;
 let walletAddress = null;
-let isUnlocked = false;
+let isUnlocked = true;
 
 /* ══════════════════════════════════════════════
    UNLOCK
@@ -702,11 +701,11 @@ function unlockReport(fromSession) {
    WALLET
 ══════════════════════════════════════════════ */
 async function connectWallet() {
-  const solProvider = window.phantom?.solana || window.solana;
-  if (!solProvider?.isPhantom) { setStatus('No wallet — install Phantom', 'err'); return; }
+  if (!window.ethereum) { setStatus('No wallet — install MetaMask', 'err'); return; }
   try {
-    const resp = await solProvider.connect();
-    walletAddress = resp.publicKey.toString();
+    const provider = new ethers.providers.Web3Provider(window.ethereum);
+    await provider.send('eth_requestAccounts', []);
+    walletAddress = await provider.getSigner().getAddress();
     const btn = document.getElementById('wallet-btn');
     btn.classList.add('connected');
     document.getElementById('wallet-label').textContent = walletAddress.slice(0,6) + '...' + walletAddress.slice(-4);
@@ -721,50 +720,32 @@ async function connectWallet() {
 ══════════════════════════════════════════════ */
 async function triggerPayment() {
   if (!walletAddress) { await connectWallet(); return; }
-  setStatus('Building transaction network...', 'pending');
+  setStatus('Switching to Base network...', 'pending');
   try {
-        const solProvider = window.phantom?.solana || window.solana;
-    // Phantom handles RPC
-    const fromPubkey = new solanaWeb3.PublicKey(walletAddress);
-    const toPubkey = new solanaWeb3.PublicKey(RECEIVER_ADDRESS);
-    const mintPubkey = new solanaWeb3.PublicKey(USDC_MINT);
-    const TOKEN_PROGRAM = new solanaWeb3.PublicKey('TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA');
-    const ATA_PROGRAM = new solanaWeb3.PublicKey('ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL');
-    const fromATA = (await solanaWeb3.PublicKey.findProgramAddress(
-      [fromPubkey.toBuffer(), TOKEN_PROGRAM.toBuffer(), mintPubkey.toBuffer()], ATA_PROGRAM))[0];
-    const toATA = (await solanaWeb3.PublicKey.findProgramAddress(
-      [toPubkey.toBuffer(), TOKEN_PROGRAM.toBuffer(), mintPubkey.toBuffer()], ATA_PROGRAM))[0];
-    const dataBuffer = new ArrayBuffer(9);
-    const dataView = new DataView(dataBuffer);
-    dataView.setUint8(0, 3);
-    dataView.setBigUint64(1, BigInt(AMOUNT || AMOUNT_SYNTHESIS || 50000), true);
-    const transferIx = new solanaWeb3.TransactionInstruction({
-      keys: [
-        { pubkey: fromATA, isSigner: false, isWritable: true },
-        { pubkey: toATA, isSigner: false, isWritable: true },
-        { pubkey: fromPubkey, isSigner: true, isWritable: false },
-      ],
-      programId: TOKEN_PROGRAM,
-      data: new Uint8Array(dataBuffer),
-    });
-    const btn = document.getElementById('btn-unlock');
-    if(btn) { btn.disabled = true; btn.textContent = 'Pending...'; }
-    setStatus('Confirm in Phantom...', 'pending');
-    const resp = await fetch('https://rpc.ankr.com/solana', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ jsonrpc: '2.0', id: 1, method: 'getLatestBlockhash', params: [{ commitment: 'finalized' }] })
-    });
-    const { result } = await resp.json();
-    const tx = new solanaWeb3.Transaction({
-      recentBlockhash: result.value.blockhash,
-      feePayer: fromPubkey
-    });
-    tx.add(transferIx);
-    const { signature } = await solProvider.signAndSendTransaction(tx);
-    setStatus('Confirming...', 'pending');
-    
-setStatus('✓ Payment confirmed', 'ok');
+    const provider = new ethers.providers.Web3Provider(window.ethereum);
+    try {
+      await window.ethereum.request({ method: 'wallet_switchEthereumChain', params: [{ chainId: '0x' + BASE_CHAIN_ID.toString(16) }] });
+    } catch(e) {
+      if (e.code === 4902) {
+        await window.ethereum.request({ method: 'wallet_addEthereumChain', params: [{
+          chainId: '0x' + BASE_CHAIN_ID.toString(16),
+          chainName: 'Base',
+          nativeCurrency: { name: 'ETH', symbol: 'ETH', decimals: 18 },
+          rpcUrls: ['https://mainnet.base.org'],
+          blockExplorerUrls: ['https://solscan.io']
+        }]});
+      } else throw e;
+    }
+    setStatus('Confirm in wallet...', 'pending');
+    const signer = provider.getSigner();
+    const usdc = new ethers.Contract(USDC_BASE, ['function transfer(address to, uint256 amount) returns (bool)'], signer);
+    const unlockBtn = document.getElementById('btn-unlock');
+    unlockBtn.disabled = true;
+    unlockBtn.textContent = 'Pending...';
+    const tx = await usdc.transfer(RECEIVER_ADDRESS, USDC_AMOUNT);
+    setStatus('Transaction sent · confirming...', 'pending');
+    await tx.wait();
+    setStatus('✓ Payment confirmed', 'ok');
     setTimeout(unlockReport, 600);
   } catch(e) {
     const msg = e.code === 4001 ? 'Cancelled' : (e.message || 'Error').slice(0, 50);
@@ -896,7 +877,7 @@ function renderPreviewList(data) {
       <div>
         <div class="preview-name">${item.symbol}</div>
         <div class="preview-meta mono">${item.phase || ''}</div>
-        ${item.showCES ? `<div class="locked-badge">🔒 entry zone · risk · targets</div>` : `<div class="locked-badge">🔒 ${(item.alert_msg || '').slice(0,30)}...</div>`}
+        ${item.showCES ? `` : `<div style="font-size:10px;color:var(--text-ghost);">${(item.alert_msg || '').slice(0,30)}...</div>`}
       </div>
       <div class="preview-ces">
         ${item.ces !== null ? `<div class="ces-val" style="color:${item.ces>=40?'var(--accent)':item.ces>=25?'var(--yellow)':'var(--red)'}">${item.ces}</div>

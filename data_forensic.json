@@ -8,25 +8,25 @@
       "symbol": "FARTCOIN",
       "chain": "solana",
       "liquidity": {
-        "crash_threshold_usd": 1628164.125557143,
-        "icr": 32.61100386017257,
+        "crash_threshold_usd": 1619511.5833714288,
+        "icr": 32.72228016304273,
         "icr_alert": true,
-        "lcr": 3.8287894647533682,
+        "lcr": 3.832179732846805,
         "lcr_fragile": false,
-        "lvr": 0.07554444234248434,
+        "lvr": 0.07268288782181144,
         "lvr_status": "dead",
-        "dai": -0.08684070324986681,
+        "dai": -0.09904868494683827,
         "dai_status": "balanced",
-        "ips_10k": 0.2625326782553292,
-        "ips_50k": 1.2990219626776756,
-        "ips_100k": 2.564727551182643
+        "ips_10k": 0.2639316059891112,
+        "ips_50k": 1.3058715984181135,
+        "ips_100k": 2.5780768238087095
       },
       "flows": {
-        "nbp": -8.684070324986681,
+        "nbp": -9.904868494683827,
         "nbp_status": "neutral",
-        "ev": 10.412997732403712,
+        "ev": 12.191503989090439,
         "ev_trend": "stable",
-        "ac": 96033.82481186447,
+        "ac": 82024.3343967118,
         "ac_above_median": false,
         "vwad": 0.0,
         "flow_classification": "NEUTRAL"
@@ -46,45 +46,45 @@
         "squeeze_factor": 1.0
       },
       "technical": {
-        "rmd": -1.4272999999999998,
+        "rmd": -1.2233,
         "rmd_divergence": "none",
-        "ber": -0.7702716016191242,
+        "ber": -0.7241269136303629,
         "ber_zone": "oversold",
-        "si": 14.93471364148537,
+        "si": 8.73848571146882,
         "si_status": "active_expansion",
-        "si_15m": 59.79137327038504,
+        "si_15m": 55.2767515745659,
         "si_15m_status": "normal",
         "saturated": false,
-        "rsi_1h": 29.75,
-        "rsi_15m": 35.17
+        "rsi_1h": 31.07,
+        "rsi_15m": 39.62
       },
       "forensic": {
         "wcc": 14.210526315789473,
         "wcc_alert": false,
         "tci": 0,
         "tci_alert": false,
-        "scr": 26.755857431754272,
+        "scr": 26.870926897145875,
         "scr_centralized": false,
         "fci": 0,
         "fci_alert": false,
-        "top5_pct": 26.755857431754272,
-        "top10_pct": 35.367815577301485,
-        "top20_pct": 46.87002847939802
+        "top5_pct": 26.870926897145875,
+        "top10_pct": 35.48351931103869,
+        "top20_pct": 46.98485569241709
       },
       "convergence": {
         "fhs": 5.2,
         "fhs_label": "moderate",
-        "cp": 27.1,
+        "cp": 26.7,
         "phase": "CONSOLIDATION"
       },
       "alerts": [
         {
           "severity": "critical",
           "code": "ICR_HIGH",
-          "message": "Top holder peut crash >30%. ICR=32.61"
+          "message": "Top holder peut crash >30%. ICR=32.72"
         }
       ],
-      "narrative_phase": "Phase: CONSOLIDATION | NBP -9% | EV 10.41",
+      "narrative_phase": "Phase: CONSOLIDATION | NBP -10% | EV 12.19",
       "narrative_insight": "Moderate (FHS 5.2/10). CP 27%. Monitoring required.",
       "narrative_structure": "No bull flag detected.",
       "support_key": 0.0,
@@ -94,20 +94,20 @@
       "mint_authority_renounced": true,
       "freeze_authority_renounced": true,
       "raw_metrics": {
-        "price": 0.19842773808202105,
-        "liquidity": 7598099.2526,
-        "volume_24h": 573994.170900514,
-        "fdv": 198446514.820042,
-        "mcap": 198446514.820053,
-        "buys": 857.0,
-        "sells": 1020.0,
-        "price_change_24h": -5.977,
+        "price": 0.19722148439624404,
+        "liquidity": 7557720.7224,
+        "volume_24h": 549316.967454779,
+        "fdv": 197217282.311172,
+        "mcap": 197217282.311172,
+        "buys": 805.0,
+        "sells": 982.0,
+        "price_change_24h": -6.697,
         "holder_count": 20,
-        "top5_sum_usd": 53096066.583538495,
+        "top5_sum_usd": 52994111.75837283,
         "ohlcv_count": 48,
         "ohlcv_15m_count": 100,
-        "rsi_1h": 29.75,
-        "rsi_15m": 35.17,
+        "rsi_1h": 31.07,
+        "rsi_15m": 39.62,
         "rugcheck_score": 1,
         "rugcheck_risk": "UNKNOWN",
         "dex": "unknown",
@@ -119,25 +119,25 @@
       "symbol": "TRUMP",
       "chain": "solana",
       "liquidity": {
-        "crash_threshold_usd": 10546742.67555,
-        "icr": 54.886438903052664,
+        "crash_threshold_usd": 10444560.7704,
+        "icr": 55.02355733821317,
         "icr_alert": true,
-        "lcr": 1.7157394102085777,
+        "lcr": 1.7115495609717517,
         "lcr_fragile": true,
-        "lvr": 0.13861429542686635,
+        "lvr": 0.12734166847714182,
         "lvr_status": "suspicious",
-        "dai": 0.05191100969766115,
+        "dai": 0.033169533169533166,
         "dai_status": "balanced",
-        "ips_10k": 0.04061892478502768,
-        "ips_50k": 0.2027651797816754,
-        "ips_100k": 0.404709749112968
+        "ips_10k": 0.04101614749528204,
+        "ips_50k": 0.20474482372086503,
+        "ips_100k": 0.4086529516761904
       },
       "flows": {
-        "nbp": 5.191100969766115,
+        "nbp": 3.3169533169533167,
         "nbp_status": "neutral",
-        "ev": 0.471539314856127,
+        "ev": 0.8922477335912498,
         "ev_trend": "stable",
-        "ac": 2120713.943661545,
+        "ac": 1120764.9651011755,
         "ac_above_median": false,
         "vwad": 0.0,
         "flow_classification": "NEUTRAL"
@@ -157,47 +157,47 @@
         "squeeze_factor": 1.0
       },
       "technical": {
-        "rmd": 0.8167000000000002,
+        "rmd": -1.5472,
         "rmd_divergence": "none",
-        "ber": -1.0641949663705064,
+        "ber": -1.3054793467055557,
         "ber_zone": "oversold",
-        "si": 61.57474819984022,
+        "si": 63.19009566513844,
         "si_status": "normal",
-        "si_15m": 71.21835693560993,
+        "si_15m": 78.95352166188225,
         "si_15m_status": "normal",
         "saturated": false,
-        "rsi_1h": 54.95,
-        "rsi_15m": 42.6
+        "rsi_1h": 28.99,
+        "rsi_15m": 65.88
       },
       "forensic": {
-        "wcc": 2.1052631578947367,
+        "wcc": 1.5789473684210527,
         "wcc_alert": false,
         "tci": 0,
         "tci_alert": false,
-        "scr": 86.79375874313565,
+        "scr": 86.79810815649182,
         "scr_centralized": true,
         "fci": 0,
         "fci_alert": false,
-        "top5_pct": 86.79375874313565,
-        "top10_pct": 90.0480664380952,
-        "top20_pct": 93.03888051411991
+        "top5_pct": 86.79810815649182,
+        "top10_pct": 90.0018835311067,
+        "top20_pct": 93.0050191294969
       },
       "convergence": {
-        "fhs": 3.2,
+        "fhs": 3.3,
         "fhs_label": "critical",
-        "cp": 46.7,
+        "cp": 46.1,
         "phase": "CONSOLIDATION"
       },
       "alerts": [
         {
           "severity": "critical",
           "code": "ICR_HIGH",
-          "message": "Top holder peut crash >30%. ICR=54.89"
+          "message": "Top holder peut crash >30%. ICR=55.02"
         },
         {
           "severity": "warning",
           "code": "LOW_COVERAGE",
-          "message": "LCR fragile: 1.72%"
+          "message": "LCR fragile: 1.71%"
         },
         {
           "severity": "warning",
@@ -205,8 +205,8 @@
           "message": "Supply centralis\u00e9e: Top5=86.8%"
         }
       ],
-      "narrative_phase": "Phase: CONSOLIDATION | NBP +5% | EV 0.47",
-      "narrative_insight": "Critical (FHS 3.2/10). Risk: structural. ICR 54.89. CP 47%.",
+      "narrative_phase": "Phase: CONSOLIDATION | NBP +3% | EV 0.89",
+      "narrative_insight": "Critical (FHS 3.3/10). Risk: structural. ICR 55.02. CP 46%.",
       "narrative_structure": "No bull flag detected.",
       "support_key": 0.0,
       "resistance_key": 0.0,
@@ -215,20 +215,20 @@
       "mint_authority_renounced": true,
       "freeze_authority_renounced": true,
       "raw_metrics": {
-        "price": 2.868627635296943,
-        "liquidity": 49218132.4859,
-        "volume_24h": 6822336.75675919,
-        "fdv": 2868625164.93205,
-        "mcap": 666952504.270447,
-        "buys": 922.0,
-        "sells": 831.0,
-        "price_change_24h": -3.217,
+        "price": 2.84778931799156,
+        "liquidity": 48741283.5952,
+        "volume_24h": 6206796.37673031,
+        "fdv": 2847786865.57733,
+        "mcap": 662107620.348605,
+        "buys": 841.0,
+        "sells": 787.0,
+        "price_change_24h": -5.538,
         "holder_count": 20,
-        "top5_sum_usd": 578873147.4877933,
+        "top5_sum_usd": 574696888.4225564,
         "ohlcv_count": 48,
         "ohlcv_15m_count": 100,
-        "rsi_1h": 54.95,
-        "rsi_15m": 42.6,
+        "rsi_1h": 28.99,
+        "rsi_15m": 65.88,
         "rugcheck_score": 18133,
         "rugcheck_risk": "UNKNOWN",
         "dex": "unknown",
@@ -240,28 +240,28 @@
       "symbol": "PENGU",
       "chain": "solana",
       "liquidity": {
-        "crash_threshold_usd": 915239.624957143,
-        "icr": 204.41432617833507,
+        "crash_threshold_usd": 885892.9319785715,
+        "icr": 202.9619920879883,
         "icr_alert": true,
-        "lcr": 0.6363558996049129,
+        "lcr": 0.6409094682829509,
         "lcr_fragile": true,
-        "lvr": 1.3224783906914062,
+        "lvr": 1.414589346547164,
         "lvr_status": "acceptable",
-        "dai": -0.059431524547803614,
+        "dai": -0.09575233981281497,
         "dai_status": "balanced",
-        "ips_10k": 0.4660789760555341,
-        "ips_50k": 2.2877441031153865,
-        "ips_100k": 4.473153891846772
+        "ips_10k": 0.4814442925248397,
+        "ips_50k": 2.361739620201173,
+        "ips_100k": 4.614496840253156
       },
       "flows": {
-        "nbp": -5.943152454780361,
+        "nbp": -9.575233981281498,
         "nbp_status": "neutral",
-        "ev": 1.2799945410811056,
+        "ev": 0.21203291521716683,
         "ev_trend": "stable",
-        "ac": 781253.3318738865,
+        "ac": 4716248.885111951,
         "ac_above_median": false,
         "vwad": 0.0,
-        "flow_classification": "NEUTRAL"
+        "flow_classification": "CHURNING"
       },
       "bull_flag": {
         "detected": false,
@@ -278,42 +278,42 @@
         "squeeze_factor": 1.0
       },
       "technical": {
-        "rmd": -3.034,
+        "rmd": -2.013,
         "rmd_divergence": "none",
-        "ber": 2.047412295848603,
+        "ber": 1.487327558054996,
         "ber_zone": "overbought",
-        "si": 31.345374952646655,
-        "si_status": "normal",
-        "si_15m": 21.943488458395652,
-        "si_15m_status": "active_expansion",
+        "si": 28.921047884556906,
+        "si_status": "active_expansion",
+        "si_15m": 43.01252454530402,
+        "si_15m_status": "normal",
         "saturated": false,
-        "rsi_1h": 26.89,
-        "rsi_15m": 28.28
+        "rsi_1h": 31.11,
+        "rsi_15m": 46.66
       },
       "forensic": {
-        "wcc": 8.421052631578947,
+        "wcc": 10.0,
         "wcc_alert": false,
         "tci": 0,
         "tci_alert": false,
-        "scr": 34.021433497849344,
+        "scr": 34.02143349829586,
         "scr_centralized": false,
         "fci": 0,
         "fci_alert": false,
-        "top5_pct": 34.021433497849344,
-        "top10_pct": 48.3401215507313,
-        "top20_pct": 60.11159553529507
+        "top5_pct": 34.02143349829586,
+        "top10_pct": 48.33965968209416,
+        "top20_pct": 60.073917988359604
       },
       "convergence": {
-        "fhs": 3.2,
+        "fhs": 3.0,
         "fhs_label": "critical",
-        "cp": 28.0,
-        "phase": "CONSOLIDATION"
+        "cp": 26.8,
+        "phase": "DISTRIBUTION_POTENTIELLE"
       },
       "alerts": [
         {
           "severity": "critical",
           "code": "ICR_HIGH",
-          "message": "Top holder peut crash >30%. ICR=204.41"
+          "message": "Top holder peut crash >30%. ICR=202.96"
         },
         {
           "severity": "warning",
@@ -321,8 +321,8 @@
           "message": "LCR fragile: 0.64%"
         }
       ],
-      "narrative_phase": "Phase: CONSOLIDATION | NBP -6% | EV 1.28",
-      "narrative_insight": "Critical (FHS 3.2/10). Risk: structural. ICR 204.41. CP 28%.",
+      "narrative_phase": "Phase: DISTRIBUTION_POTENTIELLE | NBP -10% | EV 0.21",
+      "narrative_insight": "Critical (FHS 3.0/10). Risk: structural. ICR 202.96. CP 27%.",
       "narrative_structure": "No bull flag detected.",
       "support_key": 0.0,
       "resistance_key": 0.0,
@@ -331,20 +331,20 @@
       "mint_authority_renounced": true,
       "freeze_authority_renounced": true,
       "raw_metrics": {
-        "price": 0.008748154050516975,
-        "liquidity": 4271118.2498,
-        "volume_24h": 5648461.5894482,
-        "fdv": 671183885.063651,
-        "mcap": 549912428.702198,
-        "buys": 2548.0,
-        "sells": 2870.0,
-        "price_change_24h": 7.23,
+        "price": 0.008406631186572176,
+        "liquidity": 4134167.0159,
+        "volume_24h": 5848148.61753882,
+        "fdv": 645046956.003907,
+        "mcap": 528497996.006094,
+        "buys": 2512.0,
+        "sells": 3044.0,
+        "price_change_24h": 1.24,
         "holder_count": 20,
-        "top5_sum_usd": 187088091.22732648,
+        "top5_sum_usd": 179802594.2510396,
         "ohlcv_count": 48,
         "ohlcv_15m_count": 100,
-        "rsi_1h": 26.89,
-        "rsi_15m": 28.28,
+        "rsi_1h": 31.11,
+        "rsi_15m": 46.66,
         "rugcheck_score": 1026,
         "rugcheck_risk": "UNKNOWN",
         "dex": "unknown",
@@ -356,25 +356,25 @@
       "symbol": "PUMP",
       "chain": "solana",
       "liquidity": {
-        "crash_threshold_usd": 2896889.6090785717,
-        "icr": 233.15772597559175,
+        "crash_threshold_usd": 2918392.366671429,
+        "icr": 228.47205994519985,
         "icr_alert": true,
-        "lcr": 0.7457859247826133,
+        "lcr": 0.7610810281512097,
         "lcr_fragile": true,
-        "lvr": 0.06250976493737495,
+        "lvr": 0.06299147937812233,
         "lvr_status": "dead",
-        "dai": -0.10665998998497747,
+        "dai": -0.2066115702479339,
         "dai_status": "balanced",
-        "ips_10k": 0.14772338132065901,
-        "ips_50k": 0.7342781048243201,
-        "ips_100k": 1.4578515250989907
+        "ips_10k": 0.14663654932228334,
+        "ips_50k": 0.728907368161704,
+        "ips_100k": 1.4472655113741386
       },
       "flows": {
-        "nbp": -10.665998998497747,
-        "nbp_status": "neutral",
-        "ev": 5.8090677203063565,
+        "nbp": -20.66115702479339,
+        "nbp_status": "distribution",
+        "ev": 7.927577659851799,
         "ev_trend": "stable",
-        "ac": 172144.6621295822,
+        "ac": 126141.93678156844,
         "ac_above_median": false,
         "vwad": 0.0,
         "flow_classification": "DISTRIBUTION"
@@ -394,17 +394,17 @@
         "squeeze_factor": 1.0
       },
       "technical": {
-        "rmd": -0.04410000000000014,
+        "rmd": -1.0989,
         "rmd_divergence": "none",
-        "ber": -2.588054372997959,
+        "ber": -2.6649305183110217,
         "ber_zone": "oversold",
-        "si": 54.50988430843145,
+        "si": 51.42429816815831,
         "si_status": "normal",
-        "si_15m": 60.875074221761615,
+        "si_15m": 70.19752370919008,
         "si_15m_status": "normal",
         "saturated": false,
-        "rsi_1h": 44.65,
-        "rsi_15m": 57.62
+        "rsi_1h": 32.21,
+        "rsi_15m": 54.02
       },
       "forensic": {
         "wcc": 2.631578947368421,
@@ -417,24 +417,24 @@
         "fci_alert": false,
         "top5_pct": 63.15394595077722,
         "top10_pct": 75.65407740893446,
-        "top20_pct": 87.15478281189358
+        "top20_pct": 87.13607298566083
       },
       "convergence": {
-        "fhs": 4.2,
+        "fhs": 4.6,
         "fhs_label": "moderate",
-        "cp": 26.4,
+        "cp": 23.1,
         "phase": "DISTRIBUTION"
       },
       "alerts": [
         {
           "severity": "critical",
           "code": "ICR_HIGH",
-          "message": "Top holder peut crash >30%. ICR=233.16"
+          "message": "Top holder peut crash >30%. ICR=228.47"
         },
         {
           "severity": "warning",
           "code": "LOW_COVERAGE",
-          "message": "LCR fragile: 0.75%"
+          "message": "LCR fragile: 0.76%"
         },
         {
           "severity": "warning",
@@ -442,8 +442,8 @@
           "message": "Supply centralis\u00e9e: Top5=63.2%"
         }
       ],
-      "narrative_phase": "Phase: DISTRIBUTION | NBP -11% (selling pressure) | Distribution active",
-      "narrative_insight": "Moderate (FHS 4.2/10). CP 26%. Monitoring required.",
+      "narrative_phase": "Phase: DISTRIBUTION | NBP -21% (selling pressure) | Distribution active",
+      "narrative_insight": "Moderate (FHS 4.6/10). CP 23%. Monitoring required.",
       "narrative_structure": "No bull flag detected.",
       "support_key": 0.0,
       "resistance_key": 0.0,
@@ -452,20 +452,20 @@
       "mint_authority_renounced": true,
       "freeze_authority_renounced": true,
       "raw_metrics": {
-        "price": 0.0018148771209222966,
-        "liquidity": 13518818.1757,
-        "volume_24h": 845058.146394119,
-        "fdv": 1812694196.34603,
-        "mcap": 1069501174.45,
-        "buys": 892.0,
-        "sells": 1105.0,
-        "price_change_24h": -4.909,
+        "price": 0.0017894693961768896,
+        "liquidity": 13619164.3778,
+        "volume_24h": 857891.312051447,
+        "fdv": 1789449989.42927,
+        "mcap": 1055786943.64,
+        "buys": 816.0,
+        "sells": 1241.0,
+        "price_change_24h": -6.801,
         "holder_count": 20,
-        "top5_sum_usd": 675432193.6550807,
+        "top5_sum_usd": 666771115.7417684,
         "ohlcv_count": 48,
         "ohlcv_15m_count": 100,
-        "rsi_1h": 44.65,
-        "rsi_15m": 57.62,
+        "rsi_1h": 32.21,
+        "rsi_15m": 54.02,
         "rugcheck_score": 1,
         "rugcheck_risk": "UNKNOWN",
         "dex": "unknown",
@@ -477,25 +477,25 @@
       "symbol": "JUP",
       "chain": "solana",
       "liquidity": {
-        "crash_threshold_usd": 99753.71556428573,
+        "crash_threshold_usd": 99221.14467857144,
         "icr": 0.0,
         "icr_alert": false,
-        "lcr": 0.039743177531184254,
+        "lcr": 0.039796154306394556,
         "lcr_fragile": true,
-        "lvr": 2.1116675329485024,
+        "lvr": 2.108410593951552,
         "lvr_status": "optimal",
-        "dai": -0.052307692307692305,
+        "dai": -0.03129335594265454,
         "dai_status": "balanced",
-        "ips_10k": 4.119317351020917,
-        "ips_50k": 17.682923767426914,
-        "ips_100k": 30.05180904983823
+        "ips_10k": 4.140512356956982,
+        "ips_50k": 17.760979569601147,
+        "ips_100k": 30.16445623077336
       },
       "flows": {
-        "nbp": -5.230769230769231,
+        "nbp": -3.129335594265454,
         "nbp_status": "neutral",
-        "ev": 4.368181100453101,
+        "ev": 5.720802749409382,
         "ev_trend": "stable",
-        "ac": 228928.23740670286,
+        "ac": 174800.64316205282,
         "ac_above_median": false,
         "vwad": 0.0,
         "flow_classification": "NEUTRAL"
@@ -515,17 +515,17 @@
         "squeeze_factor": 1.0
       },
       "technical": {
-        "rmd": 0.6043999999999999,
+        "rmd": 0.2755000000000002,
         "rmd_divergence": "none",
-        "ber": -2.063978159977788,
+        "ber": -2.3214804116025047,
         "ber_zone": "oversold",
-        "si": 69.18983266440064,
+        "si": 70.05019125762131,
         "si_status": "normal",
-        "si_15m": 59.94582248242403,
+        "si_15m": 74.85553145891105,
         "si_15m_status": "normal",
         "saturated": false,
-        "rsi_1h": 51.75,
-        "rsi_15m": 35.62
+        "rsi_1h": 47.17,
+        "rsi_15m": 43.43
       },
       "forensic": {
         "wcc": 0,
@@ -541,9 +541,9 @@
         "top20_pct": 0.0
       },
       "convergence": {
-        "fhs": 6.4,
+        "fhs": 6.6,
         "fhs_label": "moderate",
-        "cp": 63.3,
+        "cp": 64.0,
         "phase": "CONSOLIDATION"
       },
       "alerts": [
@@ -553,8 +553,8 @@
           "message": "LCR fragile: 0.04%"
         }
       ],
-      "narrative_phase": "Phase: CONSOLIDATION | NBP -5% | EV 4.37",
-      "narrative_insight": "Moderate (FHS 6.4/10). CP 63%. Monitoring required.",
+      "narrative_phase": "Phase: CONSOLIDATION | NBP -3% | EV 5.72",
+      "narrative_insight": "Moderate (FHS 6.6/10). CP 64%. Monitoring required.",
       "narrative_structure": "No bull flag detected.",
       "support_key": 0.0,
       "resistance_key": 0.0,
@@ -563,20 +563,20 @@
       "mint_authority_renounced": true,
       "freeze_authority_renounced": true,
       "raw_metrics": {
-        "price": 0.17044713430209554,
-        "liquidity": 465517.3393,
-        "volume_24h": 983017.851424382,
-        "fdv": 1171313841.06048,
-        "mcap": 605937336.971547,
-        "buys": 3234.0,
-        "sells": 3591.0,
-        "price_change_24h": -4.294,
+        "price": 0.16950939121779696,
+        "liquidity": 463032.0085,
+        "volume_24h": 976261.592060065,
+        "fdv": 1163509430.92408,
+        "mcap": 601900004.423335,
+        "buys": 3142.0,
+        "sells": 3345.0,
+        "price_change_24h": -5.585,
         "holder_count": 0,
         "top5_sum_usd": 0,
         "ohlcv_count": 48,
         "ohlcv_15m_count": 100,
-        "rsi_1h": 51.75,
-        "rsi_15m": 35.62,
+        "rsi_1h": 47.17,
+        "rsi_15m": 43.43,
         "rugcheck_score": 101,
         "rugcheck_risk": "UNKNOWN",
         "dex": "unknown",
@@ -588,25 +588,25 @@
       "symbol": "WLFI",
       "chain": "solana",
       "liquidity": {
-        "crash_threshold_usd": 33452.275264285716,
-        "icr": 30041.02857187818,
+        "crash_threshold_usd": 33306.73442142858,
+        "icr": 30065.754711476326,
         "icr_alert": true,
-        "lcr": 0.21584393423470785,
+        "lcr": 0.2156491799337786,
         "lcr_fragile": true,
-        "lvr": 0.04096361650898315,
+        "lvr": 0.04098519027086873,
         "lvr_status": "dead",
-        "dai": 0.0718954248366013,
+        "dai": 0.06578947368421052,
         "dai_status": "balanced",
-        "ips_10k": 11.356498681616403,
-        "ips_50k": 39.045628338238444,
-        "ips_100k": 56.162324274240625
+        "ips_10k": 11.400465873083618,
+        "ips_50k": 39.14945042473244,
+        "ips_100k": 56.269644335977944
       },
       "flows": {
-        "nbp": 7.18954248366013,
+        "nbp": 6.578947368421052,
         "nbp_status": "neutral",
-        "ev": 468.5015958840756,
+        "ev": 420.6966011701953,
         "ev_trend": "stable",
-        "ac": 2134.4644474753004,
+        "ac": 2377.009933568358,
         "ac_above_median": false,
         "vwad": 0.0,
         "flow_classification": "NEUTRAL"
@@ -626,42 +626,42 @@
         "squeeze_factor": 1.0
       },
       "technical": {
-        "rmd": 1.4586000000000001,
+        "rmd": 2.1410000000000005,
         "rmd_divergence": "none",
-        "ber": -2.132291770182776,
+        "ber": -1.6956363618020838,
         "ber_zone": "oversold",
-        "si": 68.60891442018902,
+        "si": 59.25257196409536,
         "si_status": "normal",
-        "si_15m": 65.00635035457888,
+        "si_15m": 62.25727099991703,
         "si_15m_status": "normal",
         "saturated": false,
-        "rsi_1h": 61.59,
-        "rsi_15m": 45.22
+        "rsi_1h": 68.73,
+        "rsi_15m": 45.2
       },
       "forensic": {
         "wcc": 7.368421052631578,
         "wcc_alert": false,
         "tci": 0,
         "tci_alert": false,
-        "scr": 41.11446111856873,
+        "scr": 41.1111737564538,
         "scr_centralized": true,
         "fci": 0,
         "fci_alert": false,
-        "top5_pct": 41.11446111856873,
-        "top10_pct": 60.575698475932555,
-        "top20_pct": 81.32349218332944
+        "top5_pct": 41.1111737564538,
+        "top10_pct": 60.57241112299579,
+        "top20_pct": 81.32349222168259
       },
       "convergence": {
         "fhs": 4.9,
         "fhs_label": "moderate",
-        "cp": 47.4,
+        "cp": 32.2,
         "phase": "CONSOLIDATION"
       },
       "alerts": [
         {
           "severity": "critical",
           "code": "ICR_HIGH",
-          "message": "Top holder peut crash >30%. ICR=30041.03"
+          "message": "Top holder peut crash >30%. ICR=30065.75"
         },
         {
           "severity": "warning",
@@ -684,8 +684,8 @@
           "message": "Freeze authority active \u2014 wallets can be frozen"
         }
       ],
-      "narrative_phase": "Phase: CONSOLIDATION | NBP +7% | EV 468.50",
-      "narrative_insight": "Moderate (FHS 4.9/10). CP 47%. Monitoring required.",
+      "narrative_phase": "Phase: CONSOLIDATION | NBP +7% | EV 420.70",
+      "narrative_insight": "Moderate (FHS 4.9/10). CP 32%. Monitoring required.",
       "narrative_structure": "No bull flag detected.",
       "support_key": 0.0,
       "resistance_key": 0.0,
@@ -694,20 +694,20 @@
       "mint_authority_renounced": false,
       "freeze_authority_renounced": false,
       "raw_metrics": {
-        "price": 0.07694594280345954,
-        "liquidity": 156110.6179,
-        "volume_24h": 6394.855484636,
-        "fdv": 72325691.4554967,
-        "mcap": 2444251316.12603,
-        "buys": 82.0,
+        "price": 0.07668036214803403,
+        "liquidity": 155431.4273,
+        "volume_24h": 6370.3866219632,
+        "fdv": 72076057.6728044,
+        "mcap": 2435814927.80355,
+        "buys": 81.0,
         "sells": 71.0,
-        "price_change_24h": -2.996,
+        "price_change_24h": -2.68,
         "holder_count": 20,
-        "top5_sum_usd": 1004940757.0087409,
+        "top5_sum_usd": 1001392107.354957,
         "ohlcv_count": 48,
         "ohlcv_15m_count": 100,
-        "rsi_1h": 61.59,
-        "rsi_15m": 45.22,
+        "rsi_1h": 68.73,
+        "rsi_15m": 45.2,
         "rugcheck_score": 82434,
         "rugcheck_risk": "UNKNOWN",
         "dex": "unknown",
